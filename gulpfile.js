@@ -6,6 +6,8 @@ var sass = require('gulp-ruby-sass');
 var plumber = require('gulp-plumber');
 var livereload = require('gulp-livereload');
 var server = require('gulp-develop-server');
+var jest = require('gulp-jest');
+require('harmonize')();
 
 var options = {
     path: 'server.js'
@@ -14,7 +16,8 @@ var options = {
 var serverFiles = [
     'src/js/*.js',
     'src/index.ejs',
-    'src/stylesheets/**/*.scss'
+    'src/css/**/*.scss',
+    'server.js'
 ];
 
 gulp.task( 'server:start', function() {
@@ -24,16 +27,26 @@ gulp.task( 'server:start', function() {
 gulp.task('minify', function() {
 	sass('src/stylesheets/', {})
 	.pipe(plumber())
-	.pipe(gulp.dest('dist/stylesheets'))
+	.pipe(gulp.dest('dist/css'))
 	.pipe(minifycss())
-	.pipe(gulp.dest('dist/stylesheets'));
+	.pipe(gulp.dest('dist/css'));
 });
 
 gulp.task('styles', function() {
-	sass('src/stylesheets/', {})
+	sass('src/css/', {})
 	.pipe(plumber())
-	.pipe(gulp.dest('src/stylesheets/'))
+	.pipe(gulp.dest('src/css/'))
 	.pipe(livereload());
+});
+
+gulp.task('test', function() {
+	return gulp.src('test').pipe(jest({
+		testDirectoryName: 'test',
+		scriptPreprocessor: "./preprocessor.js",
+		unmockedModulePathPatterns: [
+		"node_modules/react"
+		]
+	}));
 });
 
 gulp.task('browserify', function() {
@@ -51,10 +64,11 @@ gulp.task('copy', function() {
 gulp.task('watch', function() {
 	livereload.listen();
 	gulp.watch('src/**/*.*', ['default']);
-	gulp.watch('src/stylesheets/**/*.scss', ['styles']);
+	gulp.watch('src/css/**/*.scss', ['styles']);
+	gulp.watch('test/**/*.js', ['test']);
 });
 
-gulp.task('default', ['browserify', 'copy', 'styles', 'watch', 'server:start'], function() {
+gulp.task('default', ['browserify', 'copy', 'styles', 'watch', 'server:start', 'test'], function() {
 	function restart( file ) {
 		server.changed( function( error ) {
 			if( ! error ) livereload.changed( file.path );

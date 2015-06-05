@@ -1,10 +1,11 @@
-/** @jsx React.DOM */
 var React = require('react');
 
-var APP = 
-React.createClass({
+var APP = React.createClass({
+	getInitialState: function() {
+		return {data: 'data from component!'};
+	},
 	render: function() {
-		return <h1> app component </h1>
+		return <h1>{this.state.data}</h1>
 	}
 });
 
