@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    title The Digital Dept
+    link(rel="stylesheet", href="/public/css/main.css")
+  body(id="rap")
+    !{content}
+    script.
+      __INJECTED = !{injectedScript}
+    script(src="/public/build.js")

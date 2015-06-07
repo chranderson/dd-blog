@@ -1,11 +1,11 @@
-jest.dontMock('../../src/js/components/app.js');
+jest.dontMock('../../src/components/App.jsx');
 var React = require('react/addons');
-var AppComponent = require('../../src/js/components/app.js');
+var AppComponent = require('../../src/components/App.jsx');
 var TestUtils = React.addons.TestUtils;
 
 describe('AppComponent', function() {
-	it('renders an h1 that says data from component!', function() {
+	it('renders a component', function() {
 		var app = TestUtils.renderIntoDocument(<AppComponent />);
-		expect(app.getDOMNode().textContent).toBe('data from component!');
+		expect(app.getDOMNode()).toBe(true);
 	});
 });
