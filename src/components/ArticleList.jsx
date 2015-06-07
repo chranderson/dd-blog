@@ -21,7 +21,7 @@ var ArticleList = React.createClass({
         <ul>
           {
             articles.map(function (art) {
-              return (<li><Link to="article" params={{id: art.id}}>{art.id}</Link></li>)
+              return (<li key={art.id}><Link to="article" params={{id: art.id}}>{art.id}</Link></li>)
             })
           }
         </ul>

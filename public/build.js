@@ -23554,7 +23554,7 @@ var ArticleList = React.createClass({displayName: "ArticleList",
         React.createElement("ul", null, 
           
             articles.map(function (art) {
-              return (React.createElement("li", null, React.createElement(Link, {to: "article", params: {id: art.id}}, art.id)))
+              return (React.createElement("li", {key: art.id}, React.createElement(Link, {to: "article", params: {id: art.id}}, art.id)))
             })
           
         )

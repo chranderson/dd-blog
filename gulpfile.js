@@ -47,6 +47,6 @@ gulp.task('test', function() {
 });
 
 
-gulp.task('default', ['styles', 'browserify', 'test'], function() {
+gulp.task('default', ['styles', 'browserify'], function() {
 
 });
