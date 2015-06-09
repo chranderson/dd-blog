@@ -1,30 +1,40 @@
-# Isomorphic blog example
+blog
+blog idea
 
-This is an example of simple isomorphic javascript application. The app is a blog who serves markdown articles.
-### Techs
+Post Types
 
-+ [Browserify](http://browserify.org/)
-+ [Express](http://expressjs.com/)
-+ [es6-promise](https://github.com/jakearchibald/es6-promise)
-+ [Flux](https://facebook.github.io/flux/)
-+ [React](http://facebook.github.io/react/)
-+ [React-router](https://github.com/rackt/react-router)
+Tutorials & How To's
+Work Walkthrough & Workflow
+Best of Lists
+Inspirations
+Local Denver Focused
+Resources, Check List, Cheat Sheets
+Podcast & Videos
+Infographics
+Technologies
 
-### Compile
+React
+Browserify
+Express Server
+Config.js - npm - for user settings
+Gulp
+Segment.io for Analytics
+Firebase db to start, switch down the road
+Functionality
 
-To build the client application run:
-```
-browserify src/browser.js -o public/build.js
-```
+Filter between design / development / business
+code examples in black text editor display box - colored code
+Comments - [Disqus]: https://disqus.com/
+Post List w/ search on sidebar (relevance is important)
+Other relevant posts - listed at end of post - near disqus.
+Outdated information links in outdated articles - Version badges (like express github)
+Lazy loading
+Use analytics to determine most relevant content for user based on past interaction
+RSS feed
+Standard Features
 
-To start the server:
-```
-node index.js
-```
-
-### Package.json
-
-To understand how server modules are override in client build, watch the ```browser``` field in package.json. [And read here](https://github.com/substack/browserify-handbook#browser-field).
-
-### Articles
-In ```articles/``` folder you will find all the markdown files used by the app. The app simply read the content of the folder and compile the file requested. It doesn't use slug or ids, simply the file name.
+Author
+Title
+Date Stamp
+Tags
+Comments -
