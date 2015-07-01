@@ -11,6 +11,6 @@ describe('AppComponent', function() {
 		AppComponent = StubRouter(AppComponent);
 		var app = TestUtils.renderIntoDocument(<AppComponent />);
 
-		expect(app.getDOMNode()).toBe(true);
+		expect(!!app.getDOMNode()).toBe(true);
 	});
 });
