@@ -3,7 +3,7 @@ var minifycss = require('gulp-minify-css');
 var sass = require('gulp-ruby-sass');
 var plumber = require('gulp-plumber');
 var jest = require('gulp-jest');
-var shell = require('gulp-shell')
+var shell = require('gulp-shell');
 
 var options = {
     path: 'index.js'
@@ -18,9 +18,9 @@ var serverFiles = [
 ];
 
 gulp.task('browserify', shell.task([
-  'browserify src/browser.js -o public/build.js',
+  'node build',
   'node index'
-]))
+]));
 
 gulp.task('minify', function() {
 	sass('src/css/', {})

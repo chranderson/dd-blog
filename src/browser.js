@@ -1,11 +1,11 @@
-var React = require("react");
-var Router = require('react-router');
-var routes = require('./routes.jsx');
-var RoutesAction = require('./action/RoutesAction');
+import React from "react";
+import Router from 'react-router';
+import routes from './routes.jsx';
+import RoutesAction from './action/RoutesAction';
 
 Router.run(routes, Router.HistoryLocation, function (Handler, state) {
   React.render(<Handler/>, document.body);
-  var activeRoute = RoutesAction.findActiveRoute(state.routes);
+  let activeRoute = RoutesAction.findActiveRoute(state.routes);
 
   // Every time there's a route change
   // ask RoutesAction to manage the flow

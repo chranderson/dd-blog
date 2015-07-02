@@ -1,17 +1,17 @@
-var EventEmitter = require('events').EventEmitter;
-var merge = require('merge');
+import merge from 'merge';
+let EventEmitter = require('events').EventEmitter;
 
-var Api = require('../api/ServerApi.js');
-var AppDispatcher = require('../dispatcher/Dispatcher');
+import Api from '../api/ServerApi.js';
+import AppDispatcher from '../dispatcher/Dispatcher';
 
-var _data = Api.getArticles();
+let _data = Api.getArticles();
 
 function loadData(data) {
   _data = data;
 };
 
 function loadArticle(article) {
-  var exist = false;
+  let exist = false;
   _data.forEach(function (art, index) {
     if (art.id == article.id) {
       Api.setArticle(article, index);
@@ -22,9 +22,9 @@ function loadArticle(article) {
   if(!exist) _data.push(article);
 };
 
-var CHANGE_EVENT = "change";
+let CHANGE_EVENT = "change";
 
-var ArticleStore = merge({}, EventEmitter.prototype, {
+let ArticleStore = merge({}, EventEmitter.prototype, {
 
   findById: function (id) {
     return Api.getArticle(id);
@@ -54,7 +54,7 @@ var ArticleStore = merge({}, EventEmitter.prototype, {
 });
 
 AppDispatcher.register(function (action) {
-  var type = action.actionType;
+  let type = action.actionType;
   switch (type) {
     case "LIST_FETCHED":
       loadData(action.data);

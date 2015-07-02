@@ -1,11 +1,11 @@
-var AppAction = require('./AppAction');
+import AppAction from './AppAction';
 
 module.exports = {
   /*
   * @param {array} routeArray
   */
   findActiveRoute: function (routeArray) {
-    var length = routeArray.length;
+    let length = routeArray.length;
     return routeArray[length-1].name;
   },
 

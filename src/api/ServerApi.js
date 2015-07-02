@@ -1,11 +1,11 @@
-var fs = require('fs');
-var basedir = process.env.PWD
+let fs = require('fs');
+let basedir = process.env.PWD
 
-var FILES_DIR = basedir + '/articles';
+let FILES_DIR = basedir + '/articles';
 
 module.exports = {
   getArticles: function () {
-    var articles = fs.readdirSync(FILES_DIR),
+    let articles = fs.readdirSync(FILES_DIR),
       list = [];
 
     articles.forEach( function (a) {
@@ -18,7 +18,7 @@ module.exports = {
   },
 
   getArticle: function (id) {
-    var article = fs.readFileSync(FILES_DIR + '/' + id + ".md", {encoding: 'utf8'});
+    let article = fs.readFileSync(FILES_DIR + '/' + id + ".md", {encoding: 'utf8'});
 
     return {
       id: id,

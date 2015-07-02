@@ -1,10 +1,10 @@
 function getInjectedData(key) {
-  var inj = window.__INJECTED[key];
+  let inj = window.__INJECTED[key];
   return inj;
 
 };
 
-var _data = getInjectedData("list") || [];
+let _data = getInjectedData("list") || [];
 
 module.exports = {
   getArticles: function () {
@@ -12,7 +12,7 @@ module.exports = {
   },
 
   getArticle: function (id) {
-    var article;
+    let article;
     _data.forEach(function (d) {
       if (d.id == id) {
         article = d;

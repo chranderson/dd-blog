@@ -1,17 +1,17 @@
-var React = require('react');
-var Router = require('react-router');
+import React from 'react';
+import Router from 'react-router';
 
-var ArticleStore = require('../stores/ArticleStore');
+import ArticleStore from '../stores/ArticleStore';
 
-var Showdown = require('showdown');
-var converter = new Showdown.converter();
+import Showdown from 'showdown';
+let converter = new Showdown.converter();
 
 module.exports = React.createClass({
 
   mixins: [Router.State],
 
   getInitialState: function () {
-    var articleId = this.getParams().id;
+    let articleId = this.context.router.getCurrentParams().id;
     return {
       articleId: articleId,
       article: ArticleStore.findById(articleId)
@@ -23,7 +23,7 @@ module.exports = React.createClass({
   },
 
   render: function () {
-    var article = this.state.article;
+    let article = this.state.article;
     return (
       <div>
         <div dangerouslySetInnerHTML={{
@@ -36,7 +36,7 @@ module.exports = React.createClass({
   _change: function () {
     if (!this.isMounted()) return false;
 
-    var articleId = this.getParams().id;
+    let articleId = this.getParams().id;
     this.setState({
       article: ArticleStore.findById(articleId),
       articleId: articleId

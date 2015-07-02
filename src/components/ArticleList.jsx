@@ -1,8 +1,9 @@
-var React = require('react');
-var Link = require('react-router').Link;
-var ArticleStore = require('../stores/ArticleStore');
+import React from 'react';
+import ArticleStore from '../stores/ArticleStore';
 
-var ArticleList = React.createClass({
+let Link = require('react-router').Link;
+
+let ArticleList = React.createClass({
   getInitialState: function () {
     return {
       articles: ArticleStore.getData()
@@ -14,7 +15,7 @@ var ArticleList = React.createClass({
   },
 
   render: function () {
-    var articles = this.state.articles;
+    let articles = this.state.articles;
     return (
       <div>
         <h1>{"Articles"}</h1>

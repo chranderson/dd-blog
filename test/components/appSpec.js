@@ -5,12 +5,13 @@ var React = require('react/addons');
 var AppComponent = require('../../src/components/App.jsx');
 var TestUtils = React.addons.TestUtils;
 var StubRouter = require('../StubRouter.js');
+var shallowRenderer = TestUtils.createRenderer();
 
 describe('AppComponent', function() {
 	it('renders a component', function() {
 		AppComponent = StubRouter(AppComponent);
-		var app = TestUtils.renderIntoDocument(<AppComponent />);
-
-		expect(!!app.getDOMNode()).toBe(true);
+		shallowRenderer.render(<AppComponent />)
+		var app = shallowRenderer.getRenderOutput();
+		expect(!!app).toBe(true);
 	});
 });

@@ -1,9 +1,9 @@
-var AppDispatcher = require('../dispatcher/Dispatcher');
-var PromiseApi = require('../utils/ClientPromiseApi');
+import AppDispatcher from '../dispatcher/Dispatcher';
+import PromiseApi from '../utils/ClientPromiseApi';
 
 module.exports = {
   fetchArticle: function (id) {
-    var promise = PromiseApi.fetchArticleById(id)
+    let promise = PromiseApi.fetchArticleById(id)
       .then(function (data) {
         AppDispatcher.dispatch({
           actionType: "ARTICLE_FETCHED",
@@ -13,7 +13,7 @@ module.exports = {
   },
 
   fetchArticleList: function () {
-    var promise = PromiseApi.fetchArticles()
+    let promise = PromiseApi.fetchArticles()
       .then(function (data) {
         AppDispatcher.dispatch({
           actionType: "LIST_FETCHED",

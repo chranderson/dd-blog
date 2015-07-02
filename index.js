@@ -1,4 +1,5 @@
 // Require the server app.
+require('babel/register');
 var app = require('./src/server');
 
 // Start the server

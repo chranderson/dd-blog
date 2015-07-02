@@ -1,10 +1,10 @@
-var React = require('react');
-var ArticleList = require('./ArticleList.jsx');
-var Router = require('react-router');
-var Route = Router.Route, DefaultRoute = Router.DefaultRoute,
+import React from 'react';
+import ArticleList from './ArticleList.jsx';
+import Router from 'react-router';
+let Route = Router.Route, DefaultRoute = Router.DefaultRoute,
     RouteHandler = Router.RouteHandler, Link = Router.Link;
 
-var App = React.createClass({
+let App = React.createClass({
   render: function () {
     return (
       <div>

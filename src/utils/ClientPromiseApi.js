@@ -1,8 +1,8 @@
-var ES6Promise = require('es6-promise').Promise;
+let ES6Promise = require('es6-promise').Promise;
 
-var getJSON = function(url) {
-  var promise = new ES6Promise(function(resolve, reject){
-    var client = new XMLHttpRequest();
+let getJSON = function(url) {
+  let promise = new ES6Promise(function(resolve, reject){
+    let client = new XMLHttpRequest();
     client.open("GET", url);
     client.onreadystatechange = handler;
     client.responseType = "json";
