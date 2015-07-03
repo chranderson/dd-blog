@@ -54,6 +54,8 @@
 ### Home Page Wireframe w/ Components
 ![home wireframe](https://slack-files.com/files-pub/T03F32A3C-F076FCDL4-86984e7a26/blog-home-wireframe.png)
 
+***
+
 ### Components List & Hierarchy 
 ![Components List](https://slack-files.com/files-pub/T03F32A3C-F076F8RMG-65d3c8633f/blog-home-component-list.png)
 
