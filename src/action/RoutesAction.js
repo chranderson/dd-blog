@@ -9,7 +9,9 @@ module.exports = {
     return routeArray[length-1].name;
   },
 
-
+  /*
+  * @param {string, array} routeName, params
+  */
   triggerRouteChange: function (routeName, params) {
     switch (routeName) {
       case "article":

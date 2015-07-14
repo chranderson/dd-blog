@@ -14,6 +14,10 @@ let ArticleList = React.createClass({
     ArticleStore.addChangeListener(this._change);
   },
 
+  componentWillUnmount: function () {
+    ArticleStore.removeChangeListener(this._change);
+  },
+
   render: function () {
     let articles = this.state.articles;
     return (

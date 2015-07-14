@@ -22,6 +22,11 @@ gulp.task('browserify', shell.task([
   'node index'
 ]));
 
+gulp.task('document', function() {
+	gulp.src("./src/**/.js")
+  	.pipe(jsdoc('./documentation'));
+});
+
 gulp.task('minify', function() {
 	sass('src/css/', {})
 	.pipe(plumber())
@@ -39,7 +44,9 @@ gulp.task('styles', function() {
 gulp.task('test', function() {
 	return gulp.src('test').pipe(jest({
 		testDirectoryName: 'test',
-		scriptPreprocessor: "./preprocessor.js",
+		"scriptPreprocessor": "../node_modules/babel-jest",
+    	"testFileExtensions": ["es6", "js"],
+    	"moduleFileExtensions": ["js", "json", "es6"],
 		unmockedModulePathPatterns: [
 		"node_modules/react"
 		]
