@@ -5,24 +5,24 @@ function getInjectedData(key) {
 };
 
 let _data = getInjectedData("list") || [];
-
+/*
+* Client side API post, get article(s)
+*/
 module.exports = {
-  getArticles: function () {
+  getArticles:() {
     return _data;
   },
 
-  getArticle: function (id) {
+  getArticle:(id) {
     let article;
-    _data.forEach(function (d) {
-      if (d.id == id) {
+    _data.forEach((d) => if (d.id == id) {
         article = d;
-      }
     });
 
     return article || {id: "", content: ""};
   },
 
-  setArticle: function (article, index) {
+  setArticle:(article, index) {
 
     _data[index] = article;
     return true;

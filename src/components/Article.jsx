@@ -21,6 +21,10 @@ module.exports = React.createClass({
   componentWillMount: function () {
     ArticleStore.addChangeListener(this._change);
   },
+  componentWillUnmount: function () {
+    console.log('fired');
+    ArticleStore.removeChangeListener(this._change);
+  },
 
   render: function () {
     let article = this.state.article;
